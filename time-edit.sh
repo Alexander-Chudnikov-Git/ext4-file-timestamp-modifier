@@ -168,7 +168,8 @@ display_help() {
     echo "Usage: $0 [OPTIONS]"
     echo
     echo "Options:"
-    echo "  --drive, -d DRIVE           Specify the drive to use (e.g., /dev/sda1)."
+    echo "  --drive, -d DRIVE           Specify the drive to use (e.g., /dev/sda1). If drive is not provided,"
+    echo "                              you will be prompted to create a temporary one."
     echo "  --file, -f FILE_PATH        Specify the file path for which to modify timestamps."
     echo "  --atime, -a TIMESTAMP       Set the access time (atime) for the file."
     echo "                              Format: YYYY-MM-DD HH:MM:SS.SSSSSSSSS"
@@ -190,9 +191,10 @@ display_help() {
     echo "  -h, --help                  Display this help message and exit."
     echo
     echo "Examples:"
-    echo "  $0 --drive /dev/sda1 --file /path/to/file --atime '2024-08-09 08:22:37.404791996' --mtime '2024-08-09 08:22:37.404791996'"
-    echo "  $0 -d /dev/sda1 -f /path/to/file -A '2024-08-09 08:22:37.404791996 +0300' -M '2024-08-09 08:22:37.404791996 +0300'"
+    echo "  $0 --drive /dev/sda1 --file /path/to/file --Atime '2024-08-09 08:22:37.404791996' --Mtime '2024-08-09 08:22:37.404791996'"
+    echo "  $0 -d /dev/sda1 -f /path/to/file -a '0x66b5a79d' -M '2024-08-09 08:22:37.404791996 +0300'"
     echo "  $0 -d ./fake-usb.img -f /file.ext -B '2024-07-28 13:06:21.826639092' -M '2024-08-01 23:53:37.093976012' -A '2024-08-02 00:01:43.109820394' -s"
+    echo "  $0 -d -f /some.file -B '2024-07-28 13:06:21.826639092' -M '2024-08-01 23:53:37.093976012' -A '2024-08-02 00:01:43.109820394' -s"
     echo
     echo "Warning:"
     echo "  Drive should be unmounted before this script is executed. Also it is possible to run it on filesystem images."
